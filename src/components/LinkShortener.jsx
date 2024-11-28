@@ -1,12 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import "./linkshortener.css";
 import "../App.css";
+import axios from "axios";
 
 export default function LinkShortener() {
-  const handleSubmit = (e) => {
+  const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
+
+  //loading animation while loading?
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Hello world");
+    try {
+      const response = await axios.get("http://localhost:3030/");
+      setData(response.data);
+      console.log("done");
+      console.log(data);
+    } catch (error) {
+      setError(error.message);
+    }
   };
+
   return (
     <form className="link-shortener__container" onSubmit={handleSubmit}>
       <div className="url-shorten">
@@ -15,7 +29,7 @@ export default function LinkShortener() {
       </div>
       <div className="custom-short-link">
         <label>Custom suffix (optional)</label>
-        <input type="text" placeholder="custom suffix"/>
+        <input type="text" placeholder="custom suffix" />
       </div>
       <button type="submit">Shorten URL</button>
     </form>
