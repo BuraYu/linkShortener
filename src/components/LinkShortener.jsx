@@ -1,5 +1,6 @@
 import React from "react";
 import "./linkshortener.css";
+import "../App.css";
 
 export default function LinkShortener() {
   const handleSubmit = (e) => {
@@ -10,11 +11,11 @@ export default function LinkShortener() {
     <form className="link-shortener__container" onSubmit={handleSubmit}>
       <div className="url-shorten">
         <label>URL to shorten</label>
-        <input type="text" />
+        <input className="test" type="text" placeholder="https://example.com" />
       </div>
       <div className="custom-short-link">
         <label>Custom suffix (optional)</label>
-        <input type="text" />
+        <input type="text" placeholder="custom suffix"/>
       </div>
       <button type="submit">Shorten URL</button>
     </form>
