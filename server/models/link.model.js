@@ -8,7 +8,6 @@ const LinkSchema = mongoose.Schema(
     },
     shortenedLink: {
       type: String,
-      required: true,
     },
     //analytics
     clickCount: {
