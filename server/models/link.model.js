@@ -9,6 +9,9 @@ const LinkSchema = mongoose.Schema(
     shortenedLink: {
       type: String,
     },
+    id: {
+      type: String,
+    },
     //analytics
     clickCount: {
       type: Number,
@@ -21,7 +24,7 @@ const LinkSchema = mongoose.Schema(
     },
   },
 
-  { Timestamp: true }
+  { Timestamp: true },
 );
 
 const LinkModel = mongoose.model("Link", LinkSchema, "linksharedata");

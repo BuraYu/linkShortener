@@ -6,10 +6,12 @@ const app = express();
 const mongoose = require("mongoose");
 const LinkModel = require("./models/link.model.js");
 const { ObjectId } = require("mongodb");
+const randomSuffix = require("./randomSuffix");
 
 app.use(cors());
 app.use(express.json());
 
+const shortenedLinkPrefix = "test.com";
 const port = 3030;
 
 app.get("/", (req, res) => {
@@ -39,6 +41,10 @@ app.get("/api/link/:id", async (req, res) => {
 
 app.post("/api/link", async (req, res) => {
   try {
+    const id = randomSuffix(8);
+    req.body.id = id;
+    console.log(req.body.id);
+    req.body.shortenedLink = shortenedLinkPrefix + "/" + id;
     const link = await LinkModel.create(req.body);
     res.status(200).json(req.body);
   } catch (error) {
