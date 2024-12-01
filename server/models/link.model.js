@@ -13,12 +13,17 @@ const LinkSchema = mongoose.Schema(
     //analytics
     clickCount: {
       type: Number,
+      default: 0,
     },
 
     lastAccessed: {
       type: String,
+      default: null,
     },
   },
 
   { Timestamp: true }
 );
+
+const LinkModel = mongoose.model("Link", LinkSchema, "linksharedata");
+module.exports = LinkModel;
