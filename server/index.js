@@ -6,15 +6,18 @@ const app = express();
 const mongoose = require("mongoose");
 
 app.use(cors());
-const port = 3030;
+app.use(express.json());
 
+const port = 3030;
 
 app.get("/", (req, res) => {
   res.send("Server is running");
   console.log("Req answered");
 });
 
-console.log();
+app.post("/api/link", (req, res) => {
+  res.send(req.body);
+});
 
 mongoose
   .connect(process.env.ATLASURI)
@@ -25,15 +28,3 @@ mongoose
   .catch((error) => {
     console.log("not connected to db");
   });
-
-// original URL
-// shortened URL
-// ID
-// creation date and Time
-// experation date
-
-// analytic:
-// click count
-// last accessed
-
-// status (live, deleted, expired)
