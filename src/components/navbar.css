@@ -1,3 +1,27 @@
-.inputLink {
-  color: blue;
+.navbar--container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 48px 165px;
+}
+
+.navbar--login-signup {
+  display: flex;
+  align-items: center;
+  gap: 37px;
+}
+
+.navbar--login-signup a {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--neutral-grayish-violet);
+  text-decoration: none;
+}
+
+.navbar--login-signup span {
+  color: #fff;
+  background-color: var(--primary-color-cyan);
+  padding: 9px 23px;
+  border-radius: 25px;
+  font-weight: 700;
 }

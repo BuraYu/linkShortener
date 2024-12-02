@@ -1,10 +1,17 @@
 import React from "react";
 import "./navbar.css";
+import logo from "../assets/logo.svg";
 
 export const Navbar = () => {
   return (
-    <div>
-      <h1 className="navbar">Navbar</h1>
-    </div>
+    <nav className="navbar--container">
+      <img src={logo} alt="logo of shortly" />
+      <div className="navbar--login-signup">
+        <a href="#">Login</a>
+        <a href="#">
+          <span>Sign Up</span>
+        </a>
+      </div>
+    </nav>
   );
 };
