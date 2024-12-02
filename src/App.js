@@ -1,12 +1,16 @@
 import "./App.css";
-import LinkShortener from "./components/LinkShortener";
+import { Hero } from "./components/Hero";
+import { InputLink } from "./components/InputLink";
+import { Navbar } from "./components/Navbar";
+import LinkShortener from "./deprecated /LinkShortener";
 
 function App() {
   return (
     <div className="App">
       <div className="wrapper">
-        <h1>Link Shortener</h1>
-        <LinkShortener />
+        <Navbar />
+        <Hero />
+        <InputLink />
       </div>
     </div>
   );
