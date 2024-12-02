@@ -41,12 +41,23 @@ app.get("/api/link/:id", async (req, res) => {
 
 app.post("/api/link", async (req, res) => {
   try {
-    const id = randomSuffix(8);
-    req.body.id = id;
-    console.log(req.body.id);
-    req.body.shortenedLink = shortenedLinkPrefix + "/" + id;
-    const link = await LinkModel.create(req.body);
-    res.status(200).json(req.body);
+    let id;
+    let unique = false;
+
+    while (!unique) {
+      id = randomSuffix(8);
+      const shortenedLink = shortenedLinkPrefix + "/" + id;
+
+      const existingLink = await LinkModel.findOne({ shortenedLink });
+      if (!existingLink) {
+        unique = true;
+      }
+    }
+    const linkData = {
+      link: req.body.link,
+      shortenedLink: shortenedLinkPrefix + "/" + id,
+    };
+    res.status(200).json(linkData);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
