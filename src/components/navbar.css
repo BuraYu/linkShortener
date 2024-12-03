@@ -16,6 +16,11 @@
   font-weight: 700;
   color: var(--neutral-grayish-violet);
   text-decoration: none;
+  transition: color 0.2s ease-in;
+}
+
+.navbar--login-signup a:hover {
+  color: var(--neutral-dark-violet);
 }
 
 .navbar--login-signup span {
@@ -24,4 +29,8 @@
   padding: 9px 23px;
   border-radius: 25px;
   font-weight: 700;
+  transition: background-color 0.2s ease-in;
+}
+.navbar--login-signup span:hover {
+  background-color: #9ae3e3;
 }
