@@ -31,5 +31,5 @@ body {
   height: 100vh;
   background-color: #fff;
   gap: 30px;
-  overflow: hidden;
+  overflow-x: hidden;
 }
