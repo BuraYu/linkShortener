@@ -53,11 +53,15 @@ app.post("/api/link", async (req, res) => {
         unique = true;
       }
     }
+
     const linkData = {
       link: req.body.link,
       shortenedLink: shortenedLinkPrefix + "/" + id,
     };
-    res.status(200).json(linkData);
+
+    const savedLink = await LinkModel.create(linkData);
+
+    res.status(200).json(savedLink);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
