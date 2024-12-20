@@ -77,7 +77,30 @@ app.get("/users", async (req, res) => {
   res.json(getUsers);
 });
 
+app.post("/users/login", async (req, res) => {
+  const { name, password } = req.body;
+  //use joi?
+  if (!name || !password) {
+    return res.status(400).send("Name and password are required");
+  }
 
+  const userAuthentication = await AuthModel.findOne({ name });
+
+  if (!userAuthentication) {
+    return res.status(400).send("Cannot find user");
+  }
+  //what if bruteforce? Limits?
+  try {
+    if (await bcrypt.compare(password, userAuthentication.password)) {
+      res.status(201).send("Success");
+    } else {
+      res.status(401).send("Invalid credentials");
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("An error occured. Please try again later");
+  }
+});
 
 app.post("/users", async (req, res) => {
   try {

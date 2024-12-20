@@ -6,6 +6,38 @@ POST http://localhost:3030/users
 Content-Type: application/json
 
 {
-  "name": "Burak2",
+  "name": "Tim",
+  "password": "password123123123"
+}
+
+###
+
+POST http://localhost:3030/users/login
+Content-Type: application/json
+
+{
+  "name": "Tim",
+  "password": "password123123123123"
+}
+
+
+###
+
+POST http://localhost:3030/users/login
+Content-Type: application/json
+
+{
+  "name": "",
   "password": "password"
 }
+
+###
+
+POST http://localhost:3030/users/login
+Content-Type: application/json
+
+{
+  "name": "Tim",
+  "password": "password123123123"
+}
+
