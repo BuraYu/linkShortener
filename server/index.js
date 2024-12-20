@@ -6,6 +6,7 @@ const bcrypt = require("bcrypt");
 const app = express();
 const mongoose = require("mongoose");
 const LinkModel = require("./models/link.model.js");
+const AuthModel = require("./models/authentication.model.js");
 const { ObjectId } = require("mongodb");
 const randomSuffix = require("./randomSuffix");
 
@@ -71,17 +72,20 @@ app.post("/api/link", async (req, res) => {
 
 //login
 
-app.get("/users", (req, res) => {
-  res.json(users);
+app.get("/users", async (req, res) => {
+  const getUsers = await AuthModel.find({});
+  res.json(getUsers);
 });
+
+
 
 app.post("/users", async (req, res) => {
   try {
-    const salt = await bcrypt.genSalt();
-    const hashedPassword = await bcrypt.hash(req.body.password, salt);
+    const hashedPassword = await bcrypt.hash(req.body.password, 10);
     const user = { name: req.body.name, password: hashedPassword };
     users.push(user);
-    res.status(201).send();
+    const userData = await AuthModel.create(user);
+    res.status(201).json(userData);
   } catch (e) {
     console.log("error", e);
     res.status(500).send();

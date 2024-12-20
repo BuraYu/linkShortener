@@ -6,6 +6,6 @@ POST http://localhost:3030/users
 Content-Type: application/json
 
 {
-  "name": "Burak",
+  "name": "Burak2",
   "password": "password"
 }
