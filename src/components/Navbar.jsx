@@ -3,9 +3,11 @@ import Modal from "react-modal";
 
 import "./navbar.css";
 import logo from "../assets/logo.svg";
+import { useActionState } from "react";
 
 export const Navbar = () => {
   const [loginOpen, setLoginOpen] = useState(false);
+  const [registerOpen, setRegisterOpen] = useState(false);
 
   const customStyles = {
     content: {
@@ -34,7 +36,7 @@ export const Navbar = () => {
           >
             X
           </button>
-
+          Login
           <div className="login-signup-modal">
             <input
               type="text"
@@ -52,12 +54,56 @@ export const Navbar = () => {
             />
             <div className="login-button-container">
               <button id="login-button">Login</button>
-              <span>Allready have an accout click here</span>
+              <span
+                onClick={() => {
+                  setLoginOpen(false);
+                  setRegisterOpen(true);
+                }}
+              >
+                Allready have an accout click here
+              </span>
             </div>
           </div>
         </Modal>
+        <Modal isOpen={registerOpen} style={customStyles}>
+          <button
+            onClick={() => setRegisterOpen(false)}
+            className="react-modal-close-button"
+          >
+            X
+          </button>
+          Register
+          <div className="login-signup-modal">
+            <input
+              type="text"
+              id="email"
+              required
+              placeholder="enter email"
+              aria-label="email input"
+            />
+            <input
+              type="text"
+              id="password"
+              required
+              placeholder="enter password"
+              aria-label="password input"
+            />
+            <div className="login-button-container">
+              <button id="login-button">Login</button>
+              <span
+                onClick={() => {
+                  setLoginOpen(true);
+                  setRegisterOpen(false);
+                }}
+              >
+                Allready registered? Click here
+              </span>
+            </div>
+          </div>
+        </Modal>
+
         <a href="#">
-          <span>Sign Up</span>
+          <span onClick={() => setRegisterOpen(true)}>Sign Up</span>
         </a>
       </div>
     </nav>
