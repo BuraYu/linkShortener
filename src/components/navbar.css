@@ -34,3 +34,76 @@
 .navbar--login-signup span:hover {
   background-color: #9ae3e3;
 }
+
+/*Modal*/
+
+.react-modal-close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #666;
+  transition: color 0.3s ease;
+}
+
+.react-modal-close-button:hover {
+  color: #000;
+}
+
+.login-signup-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.login-signup-modal input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.login-signup-modal input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.login-button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.login-button-container button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-button-container button:hover {
+  background-color: #0056b3;
+}
+
+.login-button-container span {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #007bff;
+  cursor: pointer;
+  text-align: center;
+}
+
+.login-button-container span:hover {
+  text-decoration: underline;
+}
