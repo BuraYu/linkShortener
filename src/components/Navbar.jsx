@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
-
+import AuthModal from "./AuthModal";
 import "./navbar.css";
 import logo from "../assets/logo.svg";
-import { useActionState } from "react";
 
 export const Navbar = () => {
   const [loginOpen, setLoginOpen] = useState(false);
@@ -89,14 +88,14 @@ export const Navbar = () => {
               aria-label="password input"
             />
             <div className="login-button-container">
-              <button id="login-button">Login</button>
+              <button id="login-button">Register</button>
               <span
                 onClick={() => {
                   setLoginOpen(true);
                   setRegisterOpen(false);
                 }}
               >
-                Allready registered? Click here
+                Allready registered? Click here to login
               </span>
             </div>
           </div>
