@@ -18,7 +18,7 @@ function App() {
             right: "10%",
             transform: "translate(-50%, -50%)",
             zIndex: "1000",
-            transform: "rotate(400deg)",
+            transform: "rotate(390deg)",
           }}
         />
         <Navbar />
